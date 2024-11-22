@@ -1,4 +1,4 @@
-export const CourseAuthor = () => {
+export const BookAuthor = () => {
   return (
     <>
       <img

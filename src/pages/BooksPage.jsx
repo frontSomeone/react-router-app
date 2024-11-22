@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from "react";
-import { CourseCard } from "../components/CourseCard";
+import { BookCard } from "../components/BookCard";
 import { mockFetch } from "../utils/api";
 import { Loader } from "../components/Loader";
 import {
@@ -10,17 +10,17 @@ import {
   useSearchParams,
 } from "react-router-dom";
 
-export const coursesLoader = ({ request }) => {
+export const booksLoader = ({ request }) => {
   const search = new URL(request.url).searchParams.get("search");
-  const courses = mockFetch("/courses", { search });
+  const books = mockFetch("/books", { search });
 
   return defer({
-    courses,
+    books,
   });
 };
 
-export const CoursesPage = () => {
-  const { courses } = useLoaderData();
+export const BooksPage = () => {
+  const { books } = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchFromQuery = searchParams.get("search");
   const { state } = useNavigation();
@@ -40,24 +40,24 @@ export const CoursesPage = () => {
   return (
     <Suspense fallback={<Loader />}>
       <Await
-        resolve={courses}
-        errorElement={<div>Oops, error while loading courses</div>}
+        resolve={books}
+        errorElement={<div>Oops, error while loading books</div>}
       >
-        {(courses) => (
+        {(books) => (
           <div className="flex-col">
             <div className="flex justify-center px-5 py-10">
               <input
                 type="text"
                 className="search-input"
-                placeholder="Search courses"
+                placeholder="Search books"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
             <div className="relative">
               {state === "loading" && <Loader />}
-              {courses?.map((item) => (
-                <CourseCard key={item.id} {...item} />
+              {books?.map((item) => (
+                <BookCard key={item.id} {...item} />
               ))}
             </div>
           </div>

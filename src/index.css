@@ -18,7 +18,7 @@ body {
   @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 mb-2 block outline-none 
 }
 
-.course-title {
+.book-title {
   @apply block mt-1 mb-8 text-lg leading-tight font-medium text-black hover:underline
 }
 
@@ -26,7 +26,7 @@ body {
   @apply uppercase tracking-wide text-sm text-indigo-500 font-semibold
 }
 
-.course-link {
+.book-link {
   @apply block mt-1 text-lg leading-tight font-medium text-black hover:underline
 }
 

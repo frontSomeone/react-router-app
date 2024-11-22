@@ -1,9 +1,9 @@
-import aboutImage from "../assests/images/about.avif";
+import aboutImage from "../assests/images/about.jpg";
 
 export const AboutPage = () => {
   return (
     <div className="pt-10">
-      <h1 className="text-xl font-medium text-black mb-5">About Course App</h1>
+      <h1 className="text-xl font-medium text-black mb-5">About books</h1>
       <img
         className="float-left w-1/3 mr-5 mb-1 rounded-md shadow-md"
         src={aboutImage}

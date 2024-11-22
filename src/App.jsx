@@ -7,16 +7,16 @@ import {
 } from "react-router-dom";
 import { BaseLayout } from "./components/BaseLayout";
 import { AboutPage } from "./pages/AboutPage";
-import { CourseDetails, courseLoader } from "./pages/CourseDeatilsPage";
+import { BookDetails, bookLoader } from "./pages/BookDeatilsPage";
 import { ErrorPage } from "./pages/ErrorPage";
 import { HomePage } from "./pages/HomePage";
 import { ROUTES } from "./constants";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { UserPage } from "./pages/UserPage";
 import { Loader } from "./components/Loader";
-import { CourseDescription } from "./components/CourseDescription";
-import { CourseAuthor } from "./components/CourseAuthor";
-import { StartCoursePage, startCourseAction } from "./pages/StartCoursePage";
+import { BookDescription } from "./components/BookDescription";
+import { BookAuthor } from "./components/BookAuthor";
+import { StartBookPage, startBookAction } from "./pages/StartBookPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,27 +25,27 @@ const router = createBrowserRouter(
       <Route path="about" element={<AboutPage />} />
 
       <Route
-        path="courses/:id"
-        element={<CourseDetails />}
-        loader={courseLoader}
+        path="books/:id"
+        element={<BookDetails />}
+        loader={bookLoader}
       >
-        <Route index element={<CourseDescription />} />
-        <Route path="author" element={<CourseAuthor />} />
+        <Route index element={<BookDescription />} />
+        <Route path="author" element={<BookAuthor />} />
       </Route>
 
       <Route
-        path="courses/:id/start-course"
-        element={<StartCoursePage />}
-        action={startCourseAction}
+        path="books/:id/start-book"
+        element={<StartBookPage />}
+        action={startBookAction}
       />
 
       <Route
-        path="courses"
+        path="books"
         fallbackElement={<Loader />}
         lazy={() =>
-          import("./pages/CoursesPage").then((module) => ({
-            Component: module.CoursesPage,
-            loader: module.coursesLoader,
+          import("./pages/BooksPage").then((module) => ({
+            Component: module.BooksPage,
+            loader: module.booksLoader,
           }))
         }
       />

@@ -1,9 +1,9 @@
 export const ROUTES = {
   homePage: "/",
   about: "/about",
-  courses: "/courses",
+  books: "/books",
   user: "/user",
-  courseDetails: "/courses/:id",
+  courseDetails: "/books/:id",
 };
 
 export const NAV_ITEMS = [
@@ -16,7 +16,7 @@ export const NAV_ITEMS = [
     path: ROUTES.about,
   },
   {
-    title: "Courses",
-    path: ROUTES.courses,
+    title: "Books",
+    path: ROUTES.books,
   },
 ];

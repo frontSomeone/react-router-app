@@ -9,29 +9,29 @@ import {
 import { mockFetch } from "../utils/api";
 import { Loader } from "../components/Loader";
 
-export const startCourseAction = async ({ params: { id }, request }) => {
+export const startBookAction = async ({ params: { id }, request }) => {
   const formData = await request.formData();
   console.debug(formData);
 
-  const courseDetails = await mockFetch(`/courses/${id}`);
+  const bookDetails = await mockFetch(`/books/${id}`);
 
   if (!formData.get("name")) {
     return json({ message: "Name field can't be empty" }, { status: 400 });
   }
 
-  alert(`${formData.get("name")}, welcome to course ${courseDetails.title}`);
+  alert(`${formData.get("name")}, welcome to book ${bookDetails.title}`);
 
-  return redirect(`/courses/${id}`);
+  return redirect(`/books/${id}`);
 };
 
-export const StartCoursePage = () => {
+export const StartBookPage = () => {
   const navigation = useNavigation();
   const data = useActionData();
 
   return (
     <div className="pt-10 flex flex-col items-center">
       <h1 className="text-xl font-medium text-black mb-5">
-        Start your learning path now
+        Start your reading path now
       </h1>
 
       {data?.message && <p className="pb-3 text-red-900">{data.message}</p>}
@@ -52,7 +52,7 @@ export const StartCoursePage = () => {
           placeholder="Enter your email"
         />
         <button className="button" type="submit">
-          Start course
+          Start read
         </button>
       </Form>
     </div>

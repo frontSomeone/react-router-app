@@ -1,5 +1,5 @@
 import { matchPath } from "react-router-dom";
-import { coursesMocks } from "../mocks/coursesMocks";
+import { booksMocks } from "../mocks/booksMocks";
 
 const REQUEST_TIMEOUT = 3000;
 
@@ -11,15 +11,15 @@ const mockRequest = (data) => {
 
 const mockData = [
   [
-    "/courses",
+    "/books",
     ({ search }) =>
       search
-        ? coursesMocks.filter((item) =>
+        ? booksMocks.filter((item) =>
             item.title.toLowerCase().includes(search.toLowerCase())
           )
-        : coursesMocks,
+        : booksMocks,
   ],
-  ["/courses/:id", ({ id }) => coursesMocks[id]],
+  ["/books/:id", ({ id }) => booksMocks[id]],
 ];
 
 export const mockFetch = async (requestUrl, options) => {

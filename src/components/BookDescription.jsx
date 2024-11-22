@@ -1,4 +1,4 @@
-export const CourseDescription = () => {
+export const BookDescription = () => {
   return (
     <p className="text-slate-500 mb-10">
       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium

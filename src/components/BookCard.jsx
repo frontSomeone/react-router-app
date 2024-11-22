@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../constants";
 
-export const CourseCard = ({ imageUrl, title, id, description }) => {
+export const BookCard = ({ imageUrl, title, id, description }) => {
   return (
     <div className="card-container">
       <div className="md:flex">
@@ -9,15 +9,15 @@ export const CourseCard = ({ imageUrl, title, id, description }) => {
           <img
             className="h-48 w-full object-cover md:h-full md:w-48"
             src={imageUrl}
-            alt="course"
+            alt="book"
           />
         </div>
         <div className="p-8">
           <div className="content-type">
-            Course
+            Книга
           </div>
 
-          <Link to={`${ROUTES.courses}/${id}`} className="course-link">
+          <Link to={`${ROUTES.books}/${id}`} className="book-link">
             {title}
           </Link>
 
