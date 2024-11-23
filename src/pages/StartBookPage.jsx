@@ -3,7 +3,6 @@ import {
   json,
   redirect,
   useActionData,
-  useLoaderData,
   useNavigation,
 } from "react-router-dom";
 import { mockFetch } from "../utils/api";
@@ -39,12 +38,14 @@ export const StartBookPage = () => {
       {navigation.state === "submitting" && <Loader />}
 
       <Form method="post" className="flex flex-col items-center">
+        <p>Введите имя<span style={{color: "red "}}>*</span></p>
         <input
           className="form-input"
           type="text"
           name="name"
           placeholder="Enter your name"
         />
+        <p>Введите почту</p>
         <input
           className="form-input"
           type="email"

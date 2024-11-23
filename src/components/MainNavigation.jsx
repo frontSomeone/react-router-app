@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { NAV_ITEMS } from "../constants";
 
 export const MainNavigation = () => {
@@ -7,7 +7,7 @@ export const MainNavigation = () => {
       <nav className="flex">
         {NAV_ITEMS.map((navItem) => (
           <div className="px-3" key={navItem.path}>
-            <NavLink className={({isActive}) =>  isActive && 'text-amber-300'} to={navItem.path}>{navItem.title}</NavLink>
+            <NavLink className={({isActive}) => isActive ? 'text-amber-300':""} to={navItem.path}>{navItem.title}</NavLink>
           </div>
         ))}
       </nav>
